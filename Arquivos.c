@@ -139,7 +139,10 @@ void importar_arq(char *mensagem, char *arquivo, cab_recursos *cab, alunos **vet
       char aux;
 
       fscanf(importar, "%c", &aux);
-      while(aux != '+'){
+       while(aux != '+'){
+         if((*cad_alunos) == (*tam_vet_alunos)){
+      		aumentar_cadastro_aluno(&vet_alunos, tam_vet_alunos);
+      	}
          if(aux == '&'){
             ++(*cad_alunos);
             vet_alunos[(*cad_alunos)] = NULL;
